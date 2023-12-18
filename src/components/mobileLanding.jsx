@@ -1,8 +1,12 @@
-import { motion,useScroll, useSpring, useTransform } from 'framer-motion'
-import React from 'react'
+import { motion,useInView,useScroll, useSpring, useTransform } from 'framer-motion'
+import React, { useRef } from 'react'
 
 const MobileLanding = () => {
+    const ref = useRef(null)
     const { scrollYProgress} = useScroll()
+
+    const isInView = useInView(ref)
+    const view = isInView ? 1 : 0
 
     const springValue = useSpring(scrollYProgress)
 
@@ -10,18 +14,18 @@ const MobileLanding = () => {
     const backmValue = useTransform(scrollYProgress,[0,1],["0", "40vh"])
     const sunValue = useTransform(scrollYProgress,[0,1],["0", "80vh"])
 
-
+    
     
   return (
     <div style={{height: '200vh'}}>
-        <motion.img src="/back2.png" 
+        <motion.img src={process.env.PUBLIC_URL + '/back2.png'}
         style={{
             width:'100%',
             height:'100vh',
             position: 'absolute',
             top: '0px' }} />
 
-        <motion.img src="/sun.png" 
+        <motion.img src={process.env.PUBLIC_URL + '/sun.png'}
         style={{
             y:sunValue,
             width:'20%',
@@ -30,7 +34,7 @@ const MobileLanding = () => {
             top: '20vh',
             left: '190px', }}/>
 
-        <motion.img src="/backm.png" 
+        <motion.img src={process.env.PUBLIC_URL + '/backm.png'}
         style={{
             y:backmValue,
             width:'100%',
@@ -38,7 +42,7 @@ const MobileLanding = () => {
             position: 'absolute',
             top: '26vh', }}/>
 
-        <motion.img src="/forground.png" 
+        <motion.img src={process.env.PUBLIC_URL + '/forground.png'}
         style={{
             width:'100%',
             height:'auto',
@@ -55,15 +59,13 @@ const MobileLanding = () => {
         </motion.h1>
 
         <motion.div
+         ref={ref}
          style={{
             position:"relative",
             backgroundColor: 'black',
             color: 'white',
             top: '100vh',
-            padding: '5vh'}}
-        initial= {{opacity: 0}}
-        whileInView={{opacity: 1}}
-        transition={{duration: 1}}>
+            padding: '5vh'}}>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero doloribus quidem cupiditate laborum, impedit rerum odit, debitis, a ullam illum mollitia saepe. Ipsum consequuntur tempore maiores sed exercitationem dolorem inventore!
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus reiciendis asperiores tempore, at, cum hic soluta aliquam dolorem ipsum iste non voluptas. Illo optio fugit ad animi voluptates omnis ratione.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni tenetur dolorem obcaecati reiciendis, ex provident quaerat nisi, possimus cum dicta voluptates nulla, ipsum nihil soluta et hic delectus quibusdam voluptatem?
