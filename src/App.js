@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useMediaQuery } from '@mui/material'
+import {motion, useScroll, useTransform } from 'framer-motion'
+import React, { useRef } from 'react'
+import MobileLanding from './components/mobileLanding'
 
-function App() {
+
+const App = () => {
+  const isTablet = useMediaQuery('(min-width: 500px )')
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+
+      {
+        isTablet? null :
+        <MobileLanding/>
+      }
+     
+      
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
