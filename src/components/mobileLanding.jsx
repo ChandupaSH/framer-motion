@@ -18,14 +18,14 @@ const MobileLanding = () => {
     
   return (
     <div style={{height: '200vh'}}>
-        <motion.img src={process.env.PUBLIC_URL + '/back2.png'}
+        <motion.img src='/back2.png'
         style={{
             width:'100%',
             height:'100vh',
             position: 'absolute',
             top: '0px' }} />
 
-        <motion.img src={process.env.PUBLIC_URL + '/sun.png'}
+        <motion.img src= '/sun.png'
         style={{
             y:sunValue,
             width:'20%',
@@ -34,7 +34,7 @@ const MobileLanding = () => {
             top: '20vh',
             left: '190px', }}/>
 
-        <motion.img src={process.env.PUBLIC_URL + '/backm.png'}
+        <motion.img src='/backm.png'
         style={{
             y:backmValue,
             width:'100%',
@@ -42,7 +42,7 @@ const MobileLanding = () => {
             position: 'absolute',
             top: '26vh', }}/>
 
-        <motion.img src={process.env.PUBLIC_URL + '/forground.png'}
+        <motion.img src='/forground.png'
         style={{
             width:'100%',
             height:'auto',
