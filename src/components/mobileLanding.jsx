@@ -1,14 +1,13 @@
-import { motion,useInView,useScroll, useSpring, useTransform } from 'framer-motion'
-import React, { useRef } from 'react'
+import { motion,useScroll, useTransform } from 'framer-motion'
+import React from 'react'
 
 const MobileLanding = () => {
-    const ref = useRef(null)
     const { scrollYProgress} = useScroll()
 
-    const isInView = useInView(ref)
-    const view = isInView ? 1 : 0
+    // const isInView = useInView(ref)
+    // const view = isInView ? 1 : 0
 
-    const springValue = useSpring(scrollYProgress)
+    // const springValue = useSpring(scrollYProgress)
 
     const textOpacity = useTransform(scrollYProgress,[0,0.2],[1, 0])
     const backmValue = useTransform(scrollYProgress,[0,1],["0", "40vh"])
@@ -18,14 +17,14 @@ const MobileLanding = () => {
     
   return (
     <div style={{height: '200vh'}}>
-        <motion.img src='/back2.png'
+        <motion.img src={process.env.PUBLIC_URL + '/back2.png'}
         style={{
             width:'100%',
             height:'100vh',
             position: 'absolute',
             top: '0px' }} />
 
-        <motion.img src= '/sun.png'
+        <motion.img src={process.env.PUBLIC_URL + '/sun.png'}
         style={{
             y:sunValue,
             width:'20%',
@@ -34,7 +33,7 @@ const MobileLanding = () => {
             top: '20vh',
             left: '190px', }}/>
 
-        <motion.img src='/backm.png'
+        <motion.img src={process.env.PUBLIC_URL + '/backm.png'}
         style={{
             y:backmValue,
             width:'100%',
@@ -42,7 +41,7 @@ const MobileLanding = () => {
             position: 'absolute',
             top: '26vh', }}/>
 
-        <motion.img src='/forground.png'
+        <motion.img src={process.env.PUBLIC_URL + '/forground.png'}
         style={{
             width:'100%',
             height:'auto',
@@ -59,7 +58,6 @@ const MobileLanding = () => {
         </motion.h1>
 
         <motion.div
-         ref={ref}
          style={{
             position:"relative",
             backgroundColor: 'black',

@@ -1,6 +1,6 @@
 import { useMediaQuery } from '@mui/material'
-import {motion, useScroll, useTransform } from 'framer-motion'
-import React, { useRef } from 'react'
+
+import React from 'react'
 import MobileLanding from './components/mobileLanding'
 
 
